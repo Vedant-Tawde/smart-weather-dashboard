@@ -1,81 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', -apple-system, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
-}
-
-
-.wrapper {
-    margin-top: 120px;
+    background: #0f172a;
+    color: #ffffff;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
 }
 
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
 
 .card {
-    width: 360px;
-    padding: 20px;
-    background: #1a1a1a;
-    border: 1px solid #333;
+    width: 100%;
+    max-width: 460px;
+    padding: 32px;
+    background: #1e293b;
+    border: 1px solid #334155;
 }
-
 
 h1 {
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 12px;
 }
-
 
 .search {
     display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 24px;
 }
 
 input {
     flex: 1;
-    padding: 8px;
-    background: #111;
-    border: 1px solid #444;
-    color: white;
+    padding: 12px 16px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-right: none;
+    color: #ffffff;
+    font-size: 14px;
     outline: none;
 }
 
+input:focus {
+    border-color: #3b82f6;
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
 button {
-    padding: 8px 12px;
-    background: white;
-    color: black;
-    border: none;
+    padding: 12px 20px;
+    background: #3b82f6;
+    color: #ffffff;
+    border: 1px solid #3b82f6;
+    font-size: 16px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
 }
 
-
-#weather {
-    margin-top: 10px;
-    line-height: 1.6;
-    font-size: 15px;
+button:hover {
+    background: #2563eb;
+    border-color: #2563eb;
 }
-
 
 #loading {
     font-size: 13px;
-    color: #888;
+    color: #94a3b8;
+    min-height: 18px;
+    margin-bottom: 12px;
+}
+
+#weather {
+    margin-top: 0;
+}
+
+#weather h2 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.weather-stats {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #334155;
+}
+
+.weather-stats p {
+    font-size: 14px;
+    color: #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #0f172a;
+    border-bottom: 1px solid #334155;
+}
+
+.weather-stats p:last-child {
+    border-bottom: none;
+}
+
+.weather-stats p span:first-child {
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#suggestion {
+    margin-top: 24px;
+    padding: 16px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+#suggestion strong {
+    color: #ffffff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
 }
 
 .controls {
-    margin-top: 10px;
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
 }
 
 .controls button {
-    padding: 6px 8px;
+    background: transparent;
+    color: #cbd5e1;
+    border: 1px solid #334155;
     font-size: 12px;
+    padding: 10px;
+    gap: 6px;
+}
+
+.controls button:hover {
+    background: #334155;
+    color: #ffffff;
+    border-color: #334155;
+}
+
+#forecast {
+    margin-top: 32px;
+}
+
+#forecast h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 8px;
+}
+
+#forecast p {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    font-size: 14px;
+    color: #e2e8f0;
+}
+
+#forecast p span:first-child {
+    color: #94a3b8;
+}
+
+#forecast p span:last-child {
+    font-weight: 500;
+    color: #ffffff;
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Weather</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +16,7 @@
 
             <div class="search">
                 <input type="text" id="cityInput" placeholder="Search city...">
-                <button onclick="getWeather()">Search</button>
+                <button onclick="getWeather()" class="search-btn"><i class="ph ph-magnifying-glass"></i></button>
             </div>
 
             <p id="loading"></p>
@@ -25,10 +26,10 @@
             <p id="suggestion"></p>
 
             <div class="controls">
-                <button onclick="filterHot()">Hot Days</button>
-                <button onclick="filterCold()">Cold Days</button>
-                <button onclick="sortHigh()">Sort High</button>
-                <button onclick="sortLow()">Sort Low</button>
+                <button onclick="filterHot()"><i class="ph ph-fire"></i> Hot</button>
+                <button onclick="filterCold()"><i class="ph ph-snowflake"></i> Cold</button>
+                <button onclick="sortHigh()"><i class="ph ph-sort-descending"></i> High-Low</button>
+                <button onclick="sortLow()"><i class="ph ph-sort-ascending"></i> Low-High</button>
             </div>
 
 <div id="forecast"></div>

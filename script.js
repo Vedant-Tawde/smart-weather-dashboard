@@ -35,37 +35,39 @@ async function getWeather() {
 
         weatherDiv.innerHTML = `
             <h2>${data.name}</h2>
-            <p>🌡 Temp: ${temp}°C</p>
-            <p>💧 Humidity: ${humidity}%</p>
-            <p>☁ Condition: ${condition}</p>
+            <div class="weather-stats">
+                <p><span><i class="ph ph-thermometer"></i> Temperature</span> <span>${temp}°C</span></p>
+                <p><span><i class="ph ph-drop"></i> Humidity</span> <span>${humidity}%</span></p>
+                <p><span><i class="ph ph-cloud"></i> Condition</span> <span style="text-transform: capitalize;">${condition}</span></p>
+            </div>
         `;
 
         // BACKGROUND CHANGE
         if (temp > 30) {
-            document.body.style.background = "orange";
+            document.body.style.background = "#7f1d1d"; // Solid red for hot
         } else if (temp < 15) {
-            document.body.style.background = "blue";
+            document.body.style.background = "#1e3a8a"; // Solid deep blue for cold
         } else {
-            document.body.style.background = "#111";
+            document.body.style.background = "#0f172a"; // Default solid slate
         }
 
         // WHAT TO WEAR (SMART)
         let advice = "";
 
         if (condition.toLowerCase().includes("rain")) {
-            advice = "🌧 Carry an umbrella + waterproof shoes";
+            advice = "<i class='ph ph-umbrella'></i> Carry an umbrella & waterproof shoes";
         } 
         else if (temp >= 35) {
-            advice = "🥵 T-shirt, shorts, stay hydrated";
+            advice = "<i class='ph ph-sun'></i> Light clothing, stay well hydrated";
         } 
         else if (temp >= 25) {
-            advice = "😎 Light clothes, perfect weather";
+            advice = "<i class='ph ph-sunglasses'></i> Perfect weather, dress light";
         } 
         else if (temp >= 15) {
-            advice = "🧥 Light jacket or hoodie";
+            advice = "<i class='ph ph-coat-hanger'></i> Light jacket or hoodie advised";
         } 
         else {
-            advice = "🥶 Heavy jacket, it's cold";
+            advice = "<i class='ph ph-snowflake'></i> Heavy jacket required, it's freezing";
         }
 
         suggestion.innerHTML = `<strong>What to wear:</strong> ${advice}`;
@@ -102,7 +104,7 @@ function displayForecast(data) {
     let html = "<h3>Next 5 days</h3>";
 
     data.forEach(day => {
-        html += `<p>${day.date} → ${day.temp}°C</p>`;
+        html += `<p><span>${day.date}</span> <span>${day.temp}°C</span></p>`;
     });
 
     forecastDiv.innerHTML = html;
