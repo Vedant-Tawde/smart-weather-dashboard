@@ -18,7 +18,6 @@ async function getWeather() {
     suggestion.innerHTML = "";
 
     try {
-        // CURRENT WEATHER
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
         );
@@ -42,16 +41,16 @@ async function getWeather() {
             </div>
         `;
 
-        // BACKGROUND CHANGE
+       
         if (temp > 30) {
-            document.body.style.background = "#7f1d1d"; // Solid red for hot
+            document.body.style.background = "#7f1d1d"; 
         } else if (temp < 15) {
-            document.body.style.background = "#1e3a8a"; // Solid deep blue for cold
+            document.body.style.background = "#1e3a8a"; 
         } else {
-            document.body.style.background = "#0f172a"; // Default solid slate
+            document.body.style.background = "#0f172a"; 
         }
 
-        // WHAT TO WEAR (SMART)
+        
         let advice = "";
 
         if (condition.toLowerCase().includes("rain")) {
@@ -72,14 +71,12 @@ async function getWeather() {
 
         suggestion.innerHTML = `<strong>What to wear:</strong> ${advice}`;
 
-        // FORECAST API
         const res2 = await fetch(
             `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`
         );
 
         const data2 = await res2.json();
 
-        // HOF (NO LOOPS ❌)
         forecastData = data2.list
             .filter((_, index) => index % 8 === 0)
             .map(item => ({
@@ -97,7 +94,6 @@ async function getWeather() {
     }
 }
 
-// DISPLAY FORECAST
 function displayForecast(data) {
     const forecastDiv = document.getElementById("forecast");
 
@@ -110,7 +106,6 @@ function displayForecast(data) {
     forecastDiv.innerHTML = html;
 }
 
-// FILTER (HOF)
 function filterHot() {
     const filtered = forecastData.filter(day => day.temp > 25);
     displayForecast(filtered);
@@ -121,7 +116,6 @@ function filterCold() {
     displayForecast(filtered);
 }
 
-// SORT (HOF)
 function sortHigh() {
     const sorted = [...forecastData].sort((a, b) => b.temp - a.temp);
     displayForecast(sorted);
